@@ -64,7 +64,7 @@
             <input type="text" id="search" placeholder="Masukkan Nama Mahasiswa">
         </div>
         <ul id="mahasiswa">
-            <li data-nim="111111" data-thn="2021">Joni</li>
+            <li data-nim="20343012" data-thn="Ganjil 2020" jenis-kelamin="laki-laki">GUSTI NANDA</li>
             <li data-nim="222222" data-thn="2020">Dewi</li>
             <li data-nim="333333" data-thn="2019">Budi</li>
             <li data-nim="444444" data-thn="2018">Siti</li>
@@ -82,12 +82,12 @@
         info.classList.add('info');
         document.body.appendChild(info);
 
-        const showInfo = (nama, nim, thn) => {
+        const showInfo = (nama, nim, thn, jenis) => {
             info.innerHTML = `
                 <h2>${nama}</h2>
                 <p>NIM: ${nim}</p>
-                <p>Tahun Masuk: ${thn}</p>
-            `;
+                <p>Tahun Masuk : ${thn}</p>
+                <p>Jenis Kelamin : ${jenis}</p>;
         };
 
         mahasiswa.forEach(item => {
@@ -95,7 +95,8 @@
                 const nama = item.textContent.toLowerCase();
                 const nim = item.getAttribute('data-nim');
                 const thn = item.getAttribute('data-thn');
-                showInfo(nama, nim, thn);
+                const jenis = item.getAttribute("jenis-kelamin');
+                showInfo(nama, nim, thn, jenis);
             });
         });
 
