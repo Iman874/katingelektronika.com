@@ -35,7 +35,7 @@ mahasiswa.forEach(item => {
     const jenis = item.getAttribute('data-kelamin');
     const prodi = item.getAttribute('data-prodi');
     const img = document.createElement('img');
-    img.src = `https://example.com/images/${nama}.jpg`;
+    img.src = `images/${nama}.jpg`;
     img.alt = nama;
     showInfo(nama, nim, thn, jenis, prodi);
     info.appendChild(img);
