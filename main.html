@@ -3,114 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Daftar Mahasiswa</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"] {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-        li:hover {
-            background-color: #eee;
-        }
-        .info {
-            margin-top: 5px;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="gaya.css">
 </head>
 <body>
     <div class="container">
         <div class="form-group">
             <label for="search">Cari Nama Mahasiswa</label>
-            <input type="text" id="search" placeholder="Masukkan Nama Mahasiswa">
+            <input type="text" id="search" placeholder="Masukkan Nama Mahasiswa" >
         </div>
         <ul id="mahasiswa">
-            <li data-nim="20343012" data-thn="Ganjil 2020" jenis-kelamin="laki-laki">GUSTI NANDA</li>
-            <li data-nim="222222" data-thn="2020">Dewi</li>
-            <li data-nim="333333" data-thn="2019">Budi</li>
-            <li data-nim="444444" data-thn="2018">Siti</li>
-            <li data-nim="555555" data-thn="2017">Rudi</li>
-            <li data-nim="666666" data-thn="2016">Lina</li>
-            <li data-nim="777777" data-thn="2015">Andi</li>
-            <li data-nim="888888" data-thn="2014">Mira</li>
+            <li data-nim="20343012" data-thn="Ganjil 2020" data-kelamin="laki-laki" data-prodi="Informatika">Gusti Nanda</li>
+            <li data-nim="20343001" data-thn="Ganjil 2020" data-kelamin="laki-laki" data-prodi="Informatika">Adeng Pratama</li>
         </ul>
+        <div class="info"></div>
+        <script src="javascript.js"></script>
     </div>
-
-    <script>
-        const search = document.querySelector('#search');
-        const mahasiswa = document.querySelectorAll('#mahasiswa li');
-        const info = document.createElement('div');
-        info.classList.add('info');
-        document.body.appendChild(info);
-
-        const showInfo = (nama, nim, thn, jenis) => {
-            info.innerHTML = `
-                <h2>${nama}</h2>
-                <p>NIM: ${nim}</p>
-                <p>Tahun Masuk : ${thn}</p>
-                <p>Jenis Kelamin : ${jenis}</p>;
-        };
-
-        mahasiswa.forEach(item => {
-            item.addEventListener('click', () => {
-                const nama = item.textContent.toLowerCase();
-                const nim = item.getAttribute('data-nim');
-                const thn = item.getAttribute('data-thn');
-                const jenis = item.getAttribute("jenis-kelamin');
-                showInfo(nama, nim, thn, jenis);
-            });
-        });
-
-        search.addEventListener('keyup', () => {
-            const searchTerm = search.value.toLowerCase();
-            mahasiswa.forEach(item => {
-                const nama = item.textContent.toLowerCase();
-                if (nama.indexOf(searchTerm) > -1) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
